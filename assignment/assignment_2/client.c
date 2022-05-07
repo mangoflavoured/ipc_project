@@ -14,7 +14,8 @@ int main(void) {
 	/*---------------------------------------*/
 	/* TODO 1 : init receive_fd and send_fd  */
 
-	{}
+        if ((receive_fd = open(NP_RECEIVE, O_RDWR)) == -1) return -1;
+	if ((send_fd = open(NP_SEND, O_WRONLY)) == -1) return -1;
 	
 	/* TODO 1 : END                          */
 	/*---------------------------------------*/
@@ -25,7 +26,8 @@ int main(void) {
 		/*---------------------------------------*/
 		/* TODO 2 : send msg and receive msg     */
 
-		{}
+		if (write(send_fd, send_msg, BUFFER_SIZE) == -1) return -1;
+		if (read(receive_fd, receive_msg, BUFFER_SIZE) == -1) return -1;
 
 		/* TODO 2 : END                          */
 		/*---------------------------------------*/
